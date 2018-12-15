@@ -26,11 +26,12 @@ type Model
 init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init _ url navKey =
     ( Home, Cmd.none )
+{-
+     changeRouteTo (Route.fromUrl url) Home
+          (Redirect (Session.fromViewer navKey maybeViewer))
+-}
 
 
-
---    changeRouteTo (Route.fromUrl url) Home
---       (Redirect (Session.fromViewer navKey maybeViewer))
 -- ---------------------------------
 -- VIEW
 
