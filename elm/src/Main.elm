@@ -16,11 +16,11 @@ import Url exposing (Url)
 -- MODEL
 
 type Model
-    = Redirect 
-    | NotFound 
-    | Home 
-    
-    
+    = Redirect
+    | NotFound
+    | Home
+
+
 init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init _ url navKey = (Home, Cmd.none)
 --    changeRouteTo (Route.fromUrl url) Home
@@ -49,7 +49,7 @@ view model =
 
         NotFound ->
             viewPage Page.Other (\_ -> Ignored) NotFound.view
-        
+
         Home ->
             viewPage Page.Other (\_ -> Ignored) Home.view
 
@@ -118,8 +118,9 @@ updateWith toModel toMsg model ( subModel, subCmd ) =
 
 
 
--- SUBSCRIPTIONS
 
+-- ---------------------------------
+-- SUBSCRIPTIONS
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
@@ -129,7 +130,7 @@ subscriptions model =
 
         Redirect ->
             Sub.none
-        
+
         _ -> Sub.none
 
 
