@@ -7,8 +7,9 @@ import Html.Events exposing (onClick)
 import Route exposing (Route)
 
 
-type Page = Other
-          | Home
+type Page
+    = Other
+    | Home
 
 
 view : Page -> { title : String, content : Html msg } -> Document msg
@@ -26,15 +27,16 @@ viewHeader page =
                 [ text "GTL" ]
             , ul [ class "nav navbar-nav pull-xs-right" ] <|
                 navbarLink page Route.Home [ text "Home" ]
-                    :: viewMenu page 
+                    :: viewMenu page
             ]
         ]
 
 
 viewMenu : Page -> List (Html msg)
 viewMenu page =
-    [ div [] [ text "MENU is here"]
+    [ div [] [ text "MENU is here" ]
     ]
+
 
 viewFooter : Html msg
 viewFooter =
@@ -85,4 +87,3 @@ viewErrors dismissErrors errors =
         <|
             List.map (\error -> p [] [ text error ]) errors
                 ++ [ button [ onClick dismissErrors ] [ text "Ok" ] ]
-

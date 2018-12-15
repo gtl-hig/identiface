@@ -12,8 +12,10 @@ import Route exposing (Route)
 import Url exposing (Url)
 
 
+
 -- ---------------------------------
 -- MODEL
+
 
 type Model
     = Redirect
@@ -22,14 +24,16 @@ type Model
 
 
 init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
-init _ url navKey = (Home, Cmd.none)
+init _ url navKey =
+    ( Home, Cmd.none )
+
+
+
 --    changeRouteTo (Route.fromUrl url) Home
 --       (Redirect (Session.fromViewer navKey maybeViewer))
-
-
-
 -- ---------------------------------
 -- VIEW
+
 
 view : Model -> Document Msg
 view model =
@@ -55,16 +59,15 @@ view model =
 
 
 
-
 -- ---------------------------------
 -- UPDATE
+
 
 type Msg
     = Ignored
     | ChangedRoute (Maybe Route)
     | ChangedUrl Url
     | ClickedLink Browser.UrlRequest
-
 
 
 changeRouteTo : Maybe Route -> Model -> ( Model, Cmd Msg )
@@ -76,9 +79,8 @@ changeRouteTo maybeRoute model =
         Just Route.Root ->
             ( model, Cmd.none )
 
-        Just Route.Home -> 
+        Just Route.Home ->
             ( model, Cmd.none )
-
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -95,7 +97,7 @@ update msg model =
                             ( model, Cmd.none )
 
                         Just _ ->
-                            ( model, Cmd.none)
+                            ( model, Cmd.none )
 
                 Browser.External href ->
                     ( model
@@ -109,7 +111,6 @@ update msg model =
             changeRouteTo route model
 
 
-
 updateWith : (subModel -> Model) -> (subMsg -> Msg) -> Model -> ( subModel, Cmd subMsg ) -> ( Model, Cmd Msg )
 updateWith toModel toMsg model ( subModel, subCmd ) =
     ( toModel subModel
@@ -118,9 +119,9 @@ updateWith toModel toMsg model ( subModel, subCmd ) =
 
 
 
-
 -- ---------------------------------
 -- SUBSCRIPTIONS
+
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
@@ -131,17 +132,18 @@ subscriptions model =
         Redirect ->
             Sub.none
 
-        _ -> Sub.none
-
-
+        _ ->
+            Sub.none
 
 
 
 -- ---------------------------------
 -- MAIN
 
+
 main : Program () Model Msg
-main = Browser.application
+main =
+    Browser.application
         { init = init
         , onUrlChange = ChangedUrl
         , onUrlRequest = ClickedLink

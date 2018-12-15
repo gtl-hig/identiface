@@ -10,6 +10,7 @@ import Url.Parser as Parser exposing ((</>), Parser, oneOf, s, string)
 
 -- ROUTING
 
+
 type Route
     = Home
     | Root
