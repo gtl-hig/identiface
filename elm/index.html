@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="identiface">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Game: Identiface</title>
+    
+    <meta name="description" content="Simple web-based face-matching game.">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+    
+    <!-- THE MAIN -->
+    <script src="elm.js"></script>
+  </head>
+  <body>
+
+    <script>
+      var storageKey = "store";
+      var flags = localStorage.getItem(storageKey);
+      var app = Elm.Main.init({flags: flags});
+
+      app.ports.storeCache.subscribe(function(val) {
+
+        if (val === null) {
+          localStorage.removeItem(storageKey);
+        } else {
+          localStorage.setItem(storageKey, JSON.stringify(val));
+        }
+
+        // Report that the new session was stored succesfully.
+        setTimeout(function() { app.ports.onStoreChange.send(val); }, 0);
+      });
+
+      // Whenever localStorage changes in another tab, report it if necessary.
+      window.addEventListener("storage", function(event) {
+        if (event.storageArea === localStorage && event.key === storageKey) {
+          app.ports.onStoreChange.send(event.newValue);
+        }
+      }, false);
+    </script>
+
+  </body>
+</html>
