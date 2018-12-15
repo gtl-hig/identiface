@@ -1,0 +1,33 @@
+<style>
+body {background:{{vm.color}};} 
+</style>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="vm.progress"
+    aria-valuemin="0" aria-valuemax="100" style="width:{{vm.progress}}%">
+        <span class="sr-only">{{vm.progress}}% Complete</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="row-fluid">
+  <h3 style="margin-top:30px;">
+    <strong>{{'LEVEL' | translate}} {{vm.level}}</strong><br>
+    {{'MEMORISE' | translate}}
+  </h3>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+    <a class="thumbnail">
+      <img ng-src="{{vm.learn}}" alt="identiface" class="img-responsive img-rounded">
+    </a>
+    <a id="GObtn" class="btn btn-primary btn-lg" ng-click="vm.trigger()" role="button">{{'STARTNOW' | translate}}</a>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  $('#GObtn').hide().delay(2000).fadeIn(2000);
+});
+</script>

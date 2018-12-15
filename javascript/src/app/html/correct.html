@@ -1,0 +1,12 @@
+<style>
+body {background:{{vm.color}};}
+</style>
+
+	<div class="row-fluid">
+	     <div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2">
+	      	<h3><img src="/img/correct.png"><br>{{'LEVEL' | translate}} {{vm.level}} {{'OF' | translate}} {{vm.levelsnr}} {{'COMPLETE' | translate}}<br>{{'SCORECORRECT' | translate}} {{vm.score}}</h3>
+	  		<p><img src="/img/progress-level{{vm.level}}.png"><p>
+        	<h4>{{'CORRECTMSG' | translate}}</h4>
+  			<h2><a ng-click="vm.nextLevel()" class="btn btn-success btn-lg" role="button">{{'PLAYLEVEL' | translate}} {{vm.level + 1}}</a></h2>
+		</div>
+	</div>

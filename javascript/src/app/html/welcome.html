@@ -1,0 +1,22 @@
+<style>
+body {background:#51BCE8;} 
+</style>
+
+<div class="container">
+      <div class="col-md-4 col-md-offset-4">
+        <img alt="identiface" src="/img/identiface-logo.png" style="width:220px;margin-top:5px;">
+        <p class="lead">{{'TITLE' | translate}}</p>
+        <p class="lead">{{'INSTRUCTIONS' | translate}}</p>
+        <a role="button" class="btn btn-primary btn-lg" ng-click="vm.play()">{{'STARTGAME' | translate}}</a>
+              <br><br><br>
+      </div>
+</div>
+
+      <div class="container" ng-controller="LanguageController as vm">
+        <div class="col-md-4 col-md-offset-4">
+          <p>
+            <a ng-repeat='x in vm.languages' ng-click="vm.setLanguage(x)"><img alt="identiface" ng-src="{{x.icon}}"></a>
+          </p>
+          <p><a target="_blank" href="http://citycop.eu">A CITYCoP project</a></p>
+        </div>
+      </div>

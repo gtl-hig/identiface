@@ -1,0 +1,16 @@
+<style>
+body {background:#51BCE8;}
+</style>
+
+	<div class="row-fluid">
+	    <div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2">
+	      	<h3><img src="/img/correct.png"><br>{{'CONGRATS' | translate}}<br>{{'ENDGAMEMSG' | translate}}<br>{{'SCORECORRECT' | translate}} {{vm.score}}</h3>
+	  		<p><img src="/img/cup.png"><p>
+			<p><form>
+				Name: <input type="text" ng-model="scorename">
+			</form></p>
+	      		<p><a ng-click="vm.scores()" class="btn btn-warning btn-lg" role="button">{{'TOPSCORES' | translate}}</a></p>
+	      		<p><a  class="btn btn-primary btn-lg" role="button">{{'FB' | translate}}</a></p>
+	  		<p><a ng-click="vm.replay()" class="btn btn-success btn-lg" role="button">{{'PLAYAGAIN' | translate}}</a></p>
+	  	</div>
+	</div>

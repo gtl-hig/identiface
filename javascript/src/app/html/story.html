@@ -1,0 +1,22 @@
+<style>
+body {background:#51BCE8;} 
+</style>
+
+<div class="container">
+      <div class="col-md-8 col-md-offset-2">
+        <p class="lead"><h1>{{'STORYTITLE' | translate}}</h1></p>
+        <p class="lead">{{'STORYTEXT' | translate}}</p>
+        <a role="button" class="btn btn-primary btn-lg" ng-click="vm.playface()"><img src="/img/face.png"><br/>{{'PLAYNOW' | translate}}</a>
+        <a role="button" class="btn btn-primary btn-lg" ng-click="vm.playcar()"><div><img src="/img/car.png"></div>{{'PLAYNOW' | translate}}</a>
+              <br><br><br>
+      </div>
+</div>
+
+      <div class="container" ng-controller="LanguageController as vm">
+        <div class="col-md-4 col-md-offset-4">
+          <p>
+            <a ng-repeat='x in vm.languages' ng-click="vm.setLanguage(x)"><img alt="identiface" ng-src="{{x.icon}}"></a>
+          </p>
+          <p><a target="_blank" href="http://citycop.eu">A CITYCoP project</a></p>
+        </div>
+      </div>
