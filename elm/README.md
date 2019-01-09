@@ -69,14 +69,14 @@ So when filling in the report the person could give an answer which was - I thin
    # to include debugger, do 
    elm make src/Main.elm --output elm.js --debug
 
-   # start your local webserver, eg. with http-server NPM installed:
+   # start your local webserver, eg. with http-server NPM installed (npm install -g http-server):
    http-server .
 
    # if you have Python 2
    python -m SimpleHTTPServer <port>
 
    # if you have Python 3
-   python3 -m http.server .
+   python3 -m http.server 8080
 ```
 
 
